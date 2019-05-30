@@ -58,6 +58,7 @@ int main() {
 	cin >> a >> b;
 	cout << (3 * a + b) / 2 << endl;
 
+ 
 
 
 	return 0;
