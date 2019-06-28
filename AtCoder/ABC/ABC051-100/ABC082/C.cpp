@@ -1,39 +1,27 @@
 #include<iostream>
-#include<map>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 
 int main(){
 
-    map<int,int> m;
-
-    int n;
-    cin >> n;
-    int tmp;
-    int ans = 0;
+    int n,k,tmp;
+    cin >> n >> k;
+    vector<int> a(n+10,0);
 
     for(int i = 0;i < n;i++){
         cin >> tmp;
-        m[tmp]++;
+        a[tmp]++;
     }
+
+    sort(a.begin(),a.end(),greater<int>());
+
+    int ans = 0;
+    for(int i = 0;i < k;i++){
+        ans+=a[i];
+    }
+    cout << n-ans << endl;
     
-    map<int,int>::iterator itr;
-
-    for(itr = m.begin();itr != m.end();itr++){
-        
-        int key = itr->first;
-        int value = itr->second;
-        if(key < value){
-            ans += value - key;
-        }else if (key == value){
-        
-        }else{
-            ans += value;
-        }
-
-    }
-
-    cout << ans << endl;
-
     return 0;
 }
