@@ -37,7 +37,6 @@ int main(){
     REP(i,n){
         cin >> s >> distance;
         if(s.substr(0,4) == "East"){
-            //int distance = stoi(s.substr(6,1));
             if(distance < A){
                 ans += A;
             }else if(distance > B){
@@ -46,7 +45,6 @@ int main(){
                 ans += distance;
             }
         }else{
-            //int distance = stoi(s.substr(6,1));
             if(distance < A){
                 ans -= A;
             }else if(distance > B){
