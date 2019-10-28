@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -132,18 +133,22 @@ int main() {
 	double X = (2 * x) / (double)(a * a) - b;
 	double ans;
 
-    cout << atan(1)*180/M_PI<< endl;
-	cout << tan(45*M_PI/180) << endl;
+	
 
-	ans = atan(a / (double)(b - x));
-	/*if (X == 0) {
-		ans = 45.0;
+	ans = (180 / M_PI)*atan(a / (double)(b - X));
+	
+
+	if (X <= 0) {
+		X = 2 * x / (double)(a * b);
+		ans = atan(b / X);
+		printf("%.9f\n", ans * 180 / M_PI);
 	}
 	else
 	{
-		ans = atan(a / (double)(b - x));
-	}*/
-	printf("%.9f\n", ans*180/M_PI);
+		//cout << "a" << endl;
+		printf("%.9f\n", 90 - ans);
+	}
+
 
 
 

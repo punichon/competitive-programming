@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -125,28 +126,55 @@ int main() {
 	cin.tie(nullptr);
 	ios::sync_with_stdio(false);
 
-	
-	int a, b, x;
-	cin >> a >> b >> x;
-
-	double X = (2 * x) / (double)(a * a) - b;
-	double ans;
-
-    cout << atan(1)*180/M_PI<< endl;
-	cout << tan(45*M_PI/180) << endl;
-
-	ans = atan(a / (double)(b - x));
-	/*if (X == 0) {
-		ans = 45.0;
-	}
-	else
+	ll n, k;
+	cin >> n >> k;
+	vector<ll> a(n), f(n);
+	ll sum = 0;
+	for (int i = 0; i < n; i++)
 	{
-		ans = atan(a / (double)(b - x));
-	}*/
-	printf("%.9f\n", ans*180/M_PI);
+		cin >> a[i];
+		sum += a[i];
+	}
+
+	if (sum <= k) {
+		cout << "0" << endl;
+		return 0;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> f[i];
+	}
+
+	sort(a.begin(), a.end());
+	sort(f.begin(), f.end(), greater<ll>());
+
+	ll ok = 1e16;
+	ll ng = 0;
+	while (abs(ok - ng) > 1) {
+
+		ll mid = (ok + ng) / 2;
+		ll cnt = 0;
 
 
+		for (int i = 0; i < n; i++)
+		{
+			if (a[i] * f[i] <= mid)continue;
+			cnt += max(a[i] - mid / f[i], 0LL);
 
-	
+		}
+
+		if (cnt <= k) {
+			ok = mid;
+		}
+		else
+		{
+			ng = mid;
+		}
+	}
+
+	cout << ok << endl;
+
+
 	return 0;
 }

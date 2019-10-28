@@ -126,24 +126,19 @@ int main() {
 	ios::sync_with_stdio(false);
 
 	
-	int a, b, x;
-	cin >> a >> b >> x;
-
-	double X = (2 * x) / (double)(a * a) - b;
-	double ans;
-
-    cout << atan(1)*180/M_PI<< endl;
-	cout << tan(45*M_PI/180) << endl;
-
-	ans = atan(a / (double)(b - x));
-	/*if (X == 0) {
-		ans = 45.0;
-	}
-	else
+	ll n;
+	cin >> n;
+	ll ans = LINF;
+	for (ll i = 1; i*i <= n; i++)
 	{
-		ans = atan(a / (double)(b - x));
-	}*/
-	printf("%.9f\n", ans*180/M_PI);
+		if (n % i == 0) {
+			ans = min(ans, i - 1 + n / i - 1);
+		}
+	}
+
+
+	cout << ans << endl;
+
 
 
 
