@@ -16,8 +16,7 @@ int main(){
     double ave = sum / (double)num;
     
     int ans = (int)(ave + 0.9);
-    //cout << sum << endl;
-    //cout << ave << endl;
+  
     cout << ans << endl;
 
     return 0;

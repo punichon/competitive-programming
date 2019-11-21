@@ -35,7 +35,6 @@ int dy[4] = {0,1,-1,0};
 bool dfs(int now,int value){//バグがあるならtrue、バグがないならfalseを返す
     //now問目で現在の値はvalue
 
-    //cout << now << " " << value << endl;
     if(now == n){
         //n問目ならn個の選択肢が全て選び終わっている
         if(value == 0){
