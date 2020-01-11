@@ -50,7 +50,8 @@ T gcd(T x, T y) {
 template<typename T>
 T lcm(T x, T y) {
 	T tmp = gcd(x, y);
-	return x * y / tmp;
+
+	return x / tmp * y;
 }
 
 
